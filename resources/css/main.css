@@ -1,0 +1,894 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.bdGame-grid {
+    display: grid;
+    grid-template-areas: 
+        ". tools ."
+        ". game ."
+        ". . ."
+    ;
+    grid-template-columns: 10% 80% 10%;
+    grid-template-rows: 15% 80% 5%;
+    width: 100%;
+    height: 100vh;
+    background-color: #363636;
+}
+
+.tool-bar {
+    grid-area: tools;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    width: 100%;
+    height: 100%;
+    padding: 10px;
+}
+
+.tool {
+    width: 15%;
+    height: 100%;
+    border-radius: 10px;
+}
+
+.tool:hover {
+    transform: scale(1.2) rotate(-10deg);
+}
+
+.tool:active {
+    transform: scale(1) rotate(-10deg);
+    border: none !important;
+}
+
+.tool img {
+    width: 100%;
+    height: 100%;
+}
+
+.selected-tool {
+    transform: scale(1.2) rotate(-10deg);
+}
+
+.selected-tool:hover {
+    border: none !important;
+}
+
+.disabled-tool {
+    pointer-events: none;
+    transform: scale(0.7) !important;
+}
+
+.bd-con {
+    grid-area: game;
+    width: 100%;
+    height: 100%;
+    background-image: url('../bomb-defusal/resources/images/c4-texture.png');
+    background-size: cover;
+    border-radius: 20px;
+    padding: 25px;
+}
+
+.bd-grid {
+    display: grid;
+    grid-template-areas: 
+        "mg1 . timer"
+        ". . ."
+        "mg2 . mg3"
+    ;
+    grid-template-columns: 35% 30% 35%;
+    grid-template-rows: 45% 10% 45%;
+    width: 100%;
+    height: 100%;
+}
+
+.mini-game {
+    width: 100%;
+    height: 100%;
+    background-color: #323131;
+}
+
+#mg1 {
+    grid-area: mg1;
+}
+
+#mg2 {
+    grid-area: mg2;
+}
+
+#mg3 {
+    grid-area: mg3;
+}
+
+.timer-con {
+    grid-area: timer;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+}
+
+.timer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 90%;
+    height: 40%;
+    font-family: 'Exedore', sans-serif;
+    font-size: 3vw;
+    color: white;
+    background-color: black;
+}
+
+.timer p {
+    width: 70%;
+    text-align: left;
+}
+
+.lights-con {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 90%;
+    height: 90%;
+}
+
+.light {
+    width: 20%;
+    height: 40%;
+    background-color: rgb(223, 21, 21);
+    border: 2px solid black;
+    box-shadow: 3px 3px 3px 3px rgb(0, 0, 0);
+}
+
+.completed {
+    background-color: limegreen !important;
+}
+
+.gameStart {
+    position: fixed;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+    z-index: 1;
+}
+
+.directions {
+    width: 70%;
+    height: 75%;
+    text-align: center;
+    overflow: hidden;
+}
+
+.button-con {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    height: 5%;
+}
+
+.arrow-btn {
+    width: 10%;
+    height: 100%;
+    color: white;
+    font-size: 2.5vw;
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+}
+
+.arrow-btn:hover {
+    color: limegreen;
+}
+
+.direction-galla {
+    display: flex;
+    width: 200%;
+    height: 70%;
+}
+
+.page-1 {
+    position: relative;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.page-2 {
+    position: relative;
+    right: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.page-2 h1 {
+    font-size: 3vw !important;
+    margin: 0 !important;
+}
+
+.page-2 p {
+    font-size: 2.5vw !important;
+    margin: 10px 0 !important;
+}
+
+.directions h1 {
+    font-size: 4vw;
+    font-family: sans-serif;
+    color: white;
+}
+
+.directions p {
+    font-size: 3.4vw;
+    font-family: sans-serif;
+    color: white;
+    margin: 20px 0;
+}
+
+.start {
+    width: 20%;
+    height: 10%;
+    font-size: 2vw;
+    border-radius: 20px;
+    border: none;
+    cursor: pointer;
+}
+
+.start:hover{
+    background-color: limegreen;
+    color: white;
+}
+
+.gameOver {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    pointer-events: none;
+}
+
+.scoreCard {
+    position: fixed;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    top: 15%;
+    left: 5%;
+    width: 30%;
+    height: 70%;
+    background-color: rgba(20, 18, 18, 0.5);
+    border-radius: 50px;
+    padding: 20px;
+    z-index: 1;
+}
+
+#victory {
+    background-color: rgba(20, 18, 18, 0.9) !important;
+}
+
+#win {
+    color: limegreen;
+}
+
+.scoreCard h1 {
+    font-size: 3.5vw;
+    font-family: 'ArcadeClassic', sans-serif;
+    font-style: italic;
+    text-shadow: 0px 3px 2px #9b0ef3;
+    color: red;
+    text-align: center;
+}
+
+.scoreCard h2 {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    font-size: 2vw;
+    font-family: sans-serif;
+    color: white;
+    text-align: center;
+    margin: 50px 0 0 0;
+}
+
+.scoreCard p {
+    font-size: 2vw;
+    font-family: sans-serif;
+    color: red;
+}
+
+.quote {
+    font-size: 1.2vw;
+    font-style: italic;
+    font-family: sans-serif;
+    color: white;
+    text-align: center;
+}
+
+.quote-win {
+    font-size: 1.2vw;
+    font-style: italic;
+    font-family: sans-serif;
+    color: white;
+    text-align: center;
+}
+
+.scoreCard-btn {
+    width: 60%;
+    height: 10%;
+    font-size: 1.3vw;
+    font-weight: 600;
+    border: none;
+    border-radius: 20px;
+    background-color: white;
+    margin: 50px 0 0 0;
+    transition: 300ms;
+    cursor: pointer;
+}
+
+.scoreCard-btn:hover {
+    background-color: limegreen;
+    color: white;
+}
+
+.endScreen {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    background-image: url('../images/scorchmark.png');
+    background-size: cover;
+    background-position: center;
+    pointer-events: none;
+    z-index: 1;
+}
+
+.screenCrack {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    background-image: url('../images/cracked.png');
+    background-size: cover;
+    background-position: center;
+    pointer-events: none;
+    z-index: 3;
+}
+
+.hidden {
+    visibility: hidden;
+}
+
+.handBook-con {
+    position: fixed;
+    top: 0;
+    left: -37.2%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 40%;
+    height: 100%;
+    border-radius: 0 20px 20px 0;
+    transition: 400ms;
+    z-index: 1;
+}
+
+.handBook {
+    height: 100%;
+    width: 93%;
+    background-color: rgb(70, 68, 68);
+    padding: 40px;
+    overflow-y: scroll;
+}
+
+.handBook-info {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 40px;
+    width: 100%;
+    height: auto;
+}
+  
+.openBook {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 7%;
+    height: 90%;
+    writing-mode: vertical-lr;
+    text-orientation: upright;
+    font-size: 2vw;
+    font-family: sans-serif;
+    font-weight: 900;
+    text-transform: uppercase;
+    color: #f5ebeb;
+    background-color: #575252;
+    border: none;
+    border-radius: 0 20px 20px 0;
+    padding: 10% 0;
+    box-shadow: 0 5px 5px 0 rgba(0, 0, 0, 0.8);
+    cursor: pointer;
+}
+
+.mini-gameInfo-con {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 400px;
+}
+
+.mini-gameImg {
+    width: 95%;
+    height: 75%;
+}
+
+.mini-gameImg img {
+    width: 100%;
+    height: 100%;
+}
+
+.mini-gameExpand {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 95%;
+    height: 20%;
+    font-size: 2.5vw;
+    font-family: sans-serif;
+    text-align: center;
+    background-color: white;
+    transition: 300ms;
+}
+
+.mini-gameExpand:hover {
+    background-color: limegreen;
+    color: white;
+}
+
+.mini-gameInfo-Expanded {
+    display: flex;
+    flex-direction: column;
+    position: fixed;
+    top: 0;
+    left: -50%;
+    width: 40%;
+    height: 100%;
+    background-color: whitesmoke;
+    padding: 20px;
+    overflow-y: scroll;
+    transition: 300ms;
+    z-index: 1;
+}
+
+.mini-gameInfo-Expanded h1 {
+    font-family: sans-serif;
+    font-size: 3.5vw;
+}
+
+.mini-gameInfo-Expanded p {
+    font-family: sans-serif;
+    font-size: 1.4vw;
+}
+
+.mini-gameInfo-Expanded li {
+    font-family: sans-serif;
+    font-size: 1.4vw;
+}
+
+.mini-gameInfo-Expanded ul {
+    margin: 0 0 40px 0;
+    padding: 0 0 0 20px;
+}
+
+.wire-info {
+    height: 0;
+    overflow: hidden;
+}
+
+.code-info {
+    height: 0;
+    overflow: hidden;
+}
+
+.switch-info {
+    height: 0;
+    overflow: hidden;
+}
+
+.disabled {
+    background-color: #afaaaa !important;
+    pointer-events: none;
+}
+
+::-webkit-scrollbar {
+    width: 10px;
+}
+  
+  /* Track */
+::-webkit-scrollbar-track {
+    background: #575252; 
+}
+   
+  /* Handle */
+::-webkit-scrollbar-thumb {
+    background: #817d7d;
+    border-radius: 10px;
+}
+
+/*//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+/////////////////////////////////////  MINI GAMES CSS  /////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////*/
+
+.cut-wire-con {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    width: 100%;
+    height: 100%;
+    background-color: #807e7e;
+}
+
+.wire-con {
+    display: flex;
+    flex-direction: column;
+    width: 10%;
+    height: 90%;
+}
+
+.wire-dec-top {
+    width: 70%;
+    height: 20%;
+    border-radius: 0 30px 0 0;
+}
+
+.wire-top {
+    width: 70%;
+    height: 30%;
+}
+
+.wire-cut {
+    height: 0;
+}
+
+.wires-cut {
+    height: 20% !important;
+}
+
+.wire-bottom {
+    width: 70%;
+    height: 30%;
+}
+
+.wire-dec-bottom {
+    width: 70%;
+    height: 20%;
+    border-radius: 0 0 30px 0;
+}
+
+.dec-top-red {
+    border-top: 20px solid #8b0000;
+    border-right: 20px solid #8b0000;
+}
+
+.dec-bottom-red {
+    border-bottom: 20px solid #8b0000;
+    border-right: 20px solid #8b0000;
+}
+
+.wire-red {
+    border-right: 20px solid #8b0000;
+}
+
+.dec-top-blue {
+    border-top: 20px solid blue;
+    border-right: 20px solid blue;
+}
+
+.dec-bottom-blue {
+    border-bottom: 20px solid blue;
+    border-right: 20px solid blue;
+}
+
+.wire-blue {
+    border-right: 20px solid blue;
+}
+
+.dec-top-yellow {
+    border-top: 20px solid yellow;
+    border-right: 20px solid yellow;
+}
+
+.dec-bottom-yellow {
+    border-bottom: 20px solid yellow;
+    border-right: 20px solid yellow;
+}
+
+.wire-yellow {
+    border-right: 20px solid yellow;
+}
+
+.dec-top-green {
+    border-top: 20px solid green;
+    border-right: 20px solid green;
+}
+
+.dec-bottom-green {
+    border-bottom: 20px solid green;
+    border-right: 20px solid green;
+}
+
+.wire-green {
+    border-right: 20px solid green;
+}
+
+.dec-top-white {
+    border-top: 20px solid white;
+    border-right: 20px solid white;
+}
+
+.dec-bottom-white {
+    border-bottom: 20px solid white;
+    border-right: 20px solid white;
+}
+
+.wire-white {
+    border-right: 20px solid white;
+}
+
+.scan-con {
+    position: fixed;
+    left: 35%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 30%;
+    height: 35%;
+    z-index: 999999;
+    pointer-events: none;
+}
+
+.scan-end {
+    width: 10%;
+    height: 100%;
+    background-color: white;
+    border-radius: 20px 0 0 20px;
+}
+
+.scan {
+    width: 90%;
+    height: 100%;
+    background-color: rgba(255, 166, 0, 0.5);
+    border-radius: 0 20px 20px 0;
+}
+
+.hacking-con {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+    position: fixed;
+    top: 0;
+    right: 1%;
+    height: 18%;
+    width: 25%;
+    background-color: grey;
+    border-radius: 10px;
+    padding: 5px;
+}
+
+.hacking {
+    width: 95%;
+    height: 60%;
+    border-radius: 10px 10px 0 0;
+    background-image: url('../images/hacking.gif');
+    background-color: black;
+    overflow: hidden;
+}
+
+.hacking-miniGame {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    background-color: black;
+}
+
+.hacking-miniGame h1 {
+    font-family: sans-serif;
+    color: rgb(148, 8, 8);
+    text-decoration: underline;
+}
+
+.hackNumbers-con {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    width: 100%;
+    height: 50%;
+}
+
+.miniGameNum {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 12%;
+    height: 100%;
+    border-radius: 10px;
+    color: white;
+    font-size: 1.5vw;
+    font-family: sans-serif;
+    font-weight: bolder;
+    cursor: pointer;
+}
+
+.miniGameNum:hover {
+    transform: scale(1.1);
+}
+
+.pro-bar-con {
+    width: 95%;
+    height: 30%;
+    background-color: black;
+}
+
+.pro-bar {
+    width: 0;
+    height: 100%;
+    background-color: limegreen;
+}
+
+.code-pad-con {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    background-color: #807e7e;
+    padding: 20px 5px 0 5px;
+}
+
+.code-pad-code {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 90%;
+    height: 20%;
+    font-size: 1.5vw;
+    font-family: sans-serif;
+    color: white;
+    text-align: center;
+    background-color: black ;
+    margin: 0 0 5px 0;
+}
+
+.code-pad-body {
+    display: grid;
+    width: 90%;
+    height: 100%;
+    column-gap: 5px;
+    grid-template-areas: 
+        "numpad panel"
+        "enter panel"
+    ;
+    grid-template-columns: 70% 29%;
+    grid-template-rows: 70% 20%;
+}
+
+.code-pad-numbers {
+    grid-area: numpad;
+    display: grid;
+    justify-content: center;
+    align-items: center;
+    grid-template-columns: 31% 31% 31%;
+    grid-auto-rows: 20%;
+    grid-gap: 10px;
+    width: 100%;
+    height: 100%;
+}
+
+.code-pad-num {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    font-family: sans-serif;
+    font-size: 1.5vw;
+    width: 100%;
+    height: 100%;
+    background-color: #575252;
+}
+
+.code-pad-panel {
+    grid-area: panel;
+    width: 100%;
+    height: 100%;
+    background-image: url("../images/wire-background.png");
+    background-size: contain;
+}
+
+.code-pad-panel img {
+    width: 100%;
+    height: 100%;
+}
+
+.code-pad-enter {
+    grid-area: enter;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: sans-serif;
+    font-size: 1.5vw;
+    color: white;
+    width: 100%;
+    height: 100%;
+    background-color: #575252;
+    margin: 5px 0 0 0;
+    cursor: pointer;
+}
+
+.switch-game-con {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    width: 100%;
+    height: 100%;
+    background-color: #807e7e;
+}
+
+.test-switch {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: sans-serif;
+    font-size: 1.5vw;
+    color: white;
+    width: 20%;
+    height: 20%;
+    background-color: #575252;
+    box-shadow: 2px 3px 3px 2px black;
+    cursor: pointer;
+}
+
+.switches-con {
+    display: grid;
+    justify-content: center;
+    align-items: center;
+    grid-template-columns: 15% 15% 15% 15% 15%;
+    grid-template-rows: 40% 40%;
+    grid-gap: 10px;
+    width: 65%;
+    height: 75%;
+    background-color: #575252;
+    padding: 7% 0 0 0;
+}
+
+.switch-con {
+    width: 100%;
+    height: 100%;
+    background-color: #363636;
+}
+
+.switch {
+    position: relative;
+    top: 0;
+    width: 100%;
+    height: 50%;
+    background-color: #8e8a8a;
+}
