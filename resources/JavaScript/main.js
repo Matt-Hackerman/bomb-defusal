@@ -844,19 +844,22 @@ function expand() {
         $(this).html('More Info');
         if ($(this).attr('id') == 'mgInfo-1') {
             $('.wire-info').css({
-                'height' : '0'
+                'height' : '0',
+                'overflow' : 'hidden'
             });
             $('.wire-info').addClass('hidden');
         }
         else if ($(this).attr('id') == 'mgInfo-2') {
             $('.code-info').css({
-                'height' : '0'
+                'height' : '0',
+                'overflow' : 'hidden'
             });
             $('.code-info').addClass('hidden');
         }
         else if ($(this).attr('id') == 'mgInfo-3') {
             $('.switch-info').css({
-                'height' : '0'
+                'height' : '0',
+                'overflow' : 'hidden'
             });
             $('.switch-info').addClass('hidden');
         }
@@ -871,19 +874,22 @@ function expand() {
         $(this).html('View Less');
         if ($(this).attr('id') == 'mgInfo-1') {
             $('.wire-info').css({
-                'height' : 'auto'
+                'height' : 'auto',
+                'overflow' : 'visible'
             });
             $('.wire-info').removeClass('hidden');
         }
         else if ($(this).attr('id') == 'mgInfo-2') {
             $('.code-info').css({
-                'height' : 'auto'
+                'height' : 'auto',
+                'overflow' : 'visible'
             });
             $('.code-info').removeClass('hidden');
         }
         else if ($(this).attr('id') == 'mgInfo-3') {
             $('.switch-info').css({
-                'height' : 'auto'
+                'height' : 'auto',
+                'overflow' : 'visible'
             });
             $('.switch-info').removeClass('hidden');
         }
